@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" charset="UTF-8"/>
+		<link rel="stylesheet" href="/KOPOCTC/style/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+		<script src="/KOPOCTC/style/jquery-1.11.1.min.js"></script>
+		<script src="/KOPOCTC/style/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script>
+			$(document).ready(function(){
+	
+				/* data-role="content" 높이 100%로 채우기 */
+	
+				scroll(0, 0);
+	
+				var header = $("div[data-role='header']:visible");
+	
+				var footer = $("div[data-role='footer']:visible");
+	
+				var content = $("div[data-role='content']:visible");
+	
+				var viewport_height = $(window).height();
+	
+				var content_height = viewport_height - header.outerHeight() - footer.outerHeight();
+	
+				content_height -= (content.outerHeight() - content.height());
+	
+				$("div[data-role='content']").css('min-height',content_height);
+				$("div[data-role='content']").css('max-height',content_height);
+
+				$('.home').click(function(){$
+					location.href="index.html"
+				});	
+			});
+		</script>
+	
+	</head>
+	<body>
+		<div data-role="page" id="second">
+			<div data-role="header">
+				<table>
+					<tr>
+						<td>
+							<a class="home" data-transition="pop"
+												   data-icon="home" 
+												   data-role="button">Home</a>						
+						</td>
+						<td>
+							홍보 영상
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div data-role="content" style="overflos:auto">
+				<div class="hi">
+					<table width=100% border="0">
+						<tr>
+							<td width=30% valign=top>
+								<img width=100% src="/KOPOCTC/images/campus_images/sola.jpg">
+							</td>
+							<td width="70%" height="80px" valign="middle">
+								마마무도 당신의 꿈을 진정으로 응원합니다.
+							</td>
+						</tr>
+					</table>
+				</div>
+				<br/>
+				<div class="hi_end">
+					마마무 응원가
+					<iframe width="100%" src="https://www.youtube.com/embed/mCqY9vf4dmw"
+					 frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				</div>
+				<br>
+				<div class="hi_end2">
+					홍보영상
+					<iframe width="100%" src="https://www.youtube.com/embed/lQxcYhnL7fg" 
+					frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				</div>
+			</div>
+			<div data-role="footer">
+				<a class="home" data-icon="back"  data-role="button">뒤로 가자</a>
+			</div>			
+		</div>
+	</body>
+</html>

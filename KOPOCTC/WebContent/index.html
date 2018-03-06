@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" charset="UTF-8"/>
+		<link rel="stylesheet" href="/KOPOCTC/style/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+		<script src="/KOPOCTC/style/jquery-1.11.1.min.js"></script>
+		<script src="/KOPOCTC/style/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script>
+			$(document).ready(function(){
+	
+				/* data-role="content" 높이 100%로 채우기 */
+	
+				scroll(0, 0);
+	
+				var header = $("div[data-role='header']:visible");
+	
+				var footer = $("div[data-role='footer']:visible");
+	
+				var content = $("div[data-role='content']:visible");
+	
+				var viewport_height = $(window).height();
+	
+				var content_height = viewport_height - header.outerHeight() - footer.outerHeight();
+	
+				content_height -= (content.outerHeight() - content.height());
+	
+				$("div[data-role='content']").css('min-height',content_height);
+				$("div[data-role='content']").css('max-height',content_height);
+
+				
+				$('.move1').click(function() {
+					location.href="01_campus_image.html";
+				});
+				$('.move2').click(function() {
+					location.href="02_campus_intro.html";
+				});
+				$('.move3').click(function() {
+					location.href="03_poly_movie.html";
+				});
+				$('.move4').click(function() {
+					location.href="04_campus_map.html";
+				});				
+			});
+		</script>
+	</head>
+	<body>	
+		<div data-role="page" id="first">
+			<div data-role="header">
+				<table width=100% border=0>
+					<tr>
+						<td width=20%>
+							<img width=100% src="/KOPOCTC/images/campus_images/ui_symbol.png">
+						</td>
+						<td width=80%>
+							<font size=4>한국 폴리텍대학교 융합기술교육원</font>
+						</td>
+					</tr>
+				</table>				
+			</div>
+			<div data-role="content" style="overflos:auto">
+				<div class="logo">
+				<table width=100% border=0>
+					<tr>
+						<td width=100%>
+							<img width=100% src="/KOPOCTC/images/campus_images/4.png">
+						</td>
+					</tr>
+				</table>						
+				</div>
+				<a class="move1" data-transition="pop"
+									   data-role="button">캠퍼스 d이미지</a>
+				<a class="move2" data-transition="pop" 
+									   data-rel="dialog" 
+									   data-role="button">대학교 소개</a>
+				<a class="move3" data-transition="pop"
+									   data-rel="dialog" 
+									   data-role="button">홍보 동영상</a>
+				<a class="move4" data-transition="pop"
+									   data-rel="dialog" 
+									   data-role="button">캠퍼스 맵</a>									   									   									   
+			</div>
+			<div data-role="footer">하단</div>
+		</div>
+	</body>
+</html>

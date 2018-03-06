@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" charset="UTF-8"/>
+		<link rel="stylesheet" href="/KOPOCTC/style/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+		<script src="/KOPOCTC/style/jquery-1.11.1.min.js"></script>
+		<script src="/KOPOCTC/style/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script>
+			$(document).ready(function(){
+	
+				/* data-role="content" 높이 100%로 채우기 */
+	
+				scroll(0, 0);
+	
+				var header = $("div[data-role='header']:visible");
+	
+				var footer = $("div[data-role='footer']:visible");
+	
+				var content = $("div[data-role='content']:visible");
+	
+				var viewport_height = $(window).height();
+	
+				var content_height = viewport_height - header.outerHeight() - footer.outerHeight();
+	
+				content_height -= (content.outerHeight() - content.height());
+	
+				$("div[data-role='content']").css('min-height',content_height);
+				$("div[data-role='content']").css('max-height',content_height);
+
+				$('.home').click(function(){$
+					location.href="index.html"
+				});	
+			});
+		</script>
+	
+	</head>
+	<body>
+		<div data-role="page" id="second">
+			<div data-role="header">
+				<table>
+					<tr>
+						<td>
+							<a class="home" data-transition="pop"
+												   data-icon="home" 
+												   data-role="button">Home</a>						
+						</td>
+						<td>
+							캠퍼스 맵
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div data-role="content" style="overflos:auto">
+				<table width=100% border=0>
+					<tr>
+						<td width=30%>
+							<img width=100% src="/KOPOCTC/images/campus_images/ui_symbol.png">
+						</td>
+						<td width="70%" height="80px" valign="middle">
+							한국 폴리텍대학 융합기술 교육원은 서현역에서 5분거리에 있습니다.
+						</td>
+					</tr>
+				</table>			
+				<iframe
+				  width="100%"
+				  height="300"
+				  frameborder="0" style="border:0"
+				  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBAxSAXSmn41QiB-bl5SnPLmWA_E48wqo8
+				    &q=한국폴리텍대학+융합기술교육원" allowfullscreen>
+				</iframe>
+			</div>
+			<div data-role="footer">
+				<a class="home" data-icon="back"  data-role="button">뒤로 가자</a>
+			</div>			
+		</div>
+	</body>
+</html>

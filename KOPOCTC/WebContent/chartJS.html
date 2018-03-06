@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<meta charset="UTF-8">
+<head>
+	<title>Bar Chart</title>
+	<script src="/KOPOCTC/chartJS/dist/Chart.bundle.js"></script>
+	<script src="/KOPOCTC/chartJS/dist/samples/utils.js"></script>
+	<link rel="stylesheet" type="text/css" href="/KOPOCTC/chartJS/dist/samples/style.css">
+	<style type="text/css">
+	canvas {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+	.chart-container {
+		width: 800px;
+		margin-left: 40px;
+		margin-right: 40px;
+		margin-bottom: 40px;
+	}
+	.container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	</style>
+</head>
+<body>
+<center>
+	<div class="container">
+	</div>
+	<div class="container2">
+</center>	
+	</div>	
+	<script>
+		function createConfig(position) {
+			return {
+				type: 'line',
+				data: {
+					labels: ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018'],
+					datasets: [{
+						label: '최저시급',
+						borderColor: window.chartColors.red,
+						backgroundColor: window.chartColors.red,
+						data: [4110, 4320, 4580, 4860, 5210, 5580, 6030, 6470, 7530],
+						fill: false,
+					}]
+				},
+				options: {
+					responsive: true,
+					title: {
+						display: true,
+						text: '연도별 최저시급 : ' + position
+					},
+					tooltips: {
+						position: position,
+						mode: 'index',
+						intersect: false,
+					},
+				}
+			};
+		}
+		function createConfig2(position2) {
+			return {
+				type: 'line',
+				data: {
+					labels: ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018'],
+					datasets: [{
+						label: '최저시급 상승률',
+						borderColor: window.chartColors.red,
+						backgroundColor: window.chartColors.red,
+						data: [2.75, 5.1, 6.0, 6.1, 7.2, 7.1, 8.1, 7.3, 16.4],
+						fill: false,
+					},
+					{
+						label: '총 물가지수',
+						borderColor: window.chartColors.blue,
+						backgroundColor: window.chartColors.blue,
+						data: [91.051, 94.717, 96.789, 98.048, 99.298, 100.00, 100.97, 102.93],
+						fill: false,
+					}]
+				},
+				options: {
+					responsive: true,
+					title: {
+						display: true,
+						text: '연도별 최저시급 상승률 & ' + position2
+					},
+					tooltips: {
+						position: position2,
+						mode: 'index',
+						intersect: false,
+					},
+				}
+			};
+		}		
+		window.onload = function() {
+			var container = document.querySelector('.container');
+
+			['원 ￦'].forEach(function(position) {
+				var div = document.createElement('div');
+				div.classList.add('chart-container');
+
+				var canvas = document.createElement('canvas');
+				div.appendChild(canvas);
+				container.appendChild(div);
+
+				var ctx = canvas.getContext('2d');
+				var config = createConfig(position);
+				new Chart(ctx, config);
+			});
+
+			var container = document.querySelector('.container2');
+
+			['물가 상승률'].forEach(function(position2) {
+				var div = document.createElement('div');
+				div.classList.add('chart-container');
+
+				var canvas = document.createElement('canvas');
+				div.appendChild(canvas);
+				container.appendChild(div);
+
+				var ctx = canvas.getContext('2d');
+				var config = createConfig2(position2);
+				new Chart(ctx, config);
+			});			
+		};
+	</script>
+<script>
+window.setTimeout('window.location.reload()',4000); //60초마다 새로고침
+</script>	
+</body>
+
+</html>

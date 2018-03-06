@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" charset="UTF-8"/>
+		<link rel="stylesheet" href="/KOPOCTC/style/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+		<script src="/KOPOCTC/style/jquery-1.11.1.min.js"></script>
+		<script src="/KOPOCTC/style/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script type="text/javascript">
+			function img_Large(a){
+				obj = a;
+				if(a.id == "a1"){
+					document.getElementById("large_image").src="/KOPOCTC/images/campus_images/1.PNG";
+					document.getElementById("imgTitle").innerHTML= "교수님";
+				}
+				else if(a.id == "a2"){
+					document.getElementById("large_image").src="/KOPOCTC/images/campus_images/2.PNG";
+					document.getElementById("imgTitle").innerHTML= "우리 티비나옴";
+				}else {
+					document.getElementById("large_image").src="/KOPOCTC/images/campus_images/3.PNG";
+					document.getElementById("imgTitle").innerHTML= "국회의원님 옴";
+				}
+				location.href="#large";
+			}
+		</script>	
+		<script>
+			$(document).ready(function(){
+	
+				/* data-role="content" 높이 100%로 채우기 */
+	
+				scroll(0, 0);
+	
+				var header = $("div[data-role='header']:visible");
+	
+				var footer = $("div[data-role='footer']:visible");
+	
+				var content = $("div[data-role='content']:visible");
+	
+				var viewport_height = $(window).height();
+	
+				var content_height = viewport_height - header.outerHeight() - footer.outerHeight();
+	
+				content_height -= (content.outerHeight() - content.height());
+	
+				$("div[data-role='content']").css('min-height',content_height);
+				$("div[data-role='content']").css('max-height',content_height);
+
+				$('.home').click(function(){$
+					location.href="index.html"
+				});
+			});
+		</script>
+	
+	</head>
+	<body>
+		<div data-role="page" id="second">
+			<div data-role="header">
+				<table>
+					<tr>
+						<td>
+							<a class="home" data-transition="pop"
+												   data-icon="home" 
+												   data-role="button">Home</a>						
+						</td>
+						<td>
+							캠퍼스 이미지
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div data-role="content" style="overflos:auto">
+				<table width=100% border=0>
+					<tr>
+						<td width="33.3%" height="80px" valign="middle">
+							<img class=test width=100% height=100% id="a1" src="/KOPOCTC/images/campus_images/1.PNG"
+							onclick="img_Large(this);">
+						</td>
+						<td width=33.3% height="80px">
+							<img class=test width=100% height=100% id="a2" src="/KOPOCTC/images/campus_images/2.PNG"
+							onclick="img_Large(this);">
+						</td>
+						<td width=33.3% height="80px">
+							<img class=test width=100% height=100% id="a3" src="/KOPOCTC/images/campus_images/3.PNG"
+							onclick="img_Large(this);">
+						</td>
+					</tr>
+				</table>							   									   									   
+			</div>
+			<div data-role="footer">
+				<a class="home" data-icon="back"  data-role="button">뒤로 가자</a>
+			</div>			
+		</div>
+		
+		
+		<div data-role="page" id="large">
+			<div data-role="header">
+				<table>
+					<tr>
+						<td>
+							<a class="home" data-transition="pop"
+												   data-icon="home" 
+												   data-role="button">Home</a>						
+						</td>
+						<td id="imgTitle">
+							캠퍼스 이미지
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div data-role="content" style="overflos:auto">
+				<table>
+					<tr>
+						<td>
+							<img id="large_image" src="" width=100%>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div data-role="footer">
+				<a href="#second" data-icon="back"  data-role="button">뒤로 가자</a>
+			</div>
+		</div>
+	</body>
+</html>
